@@ -25,7 +25,7 @@ function makeGrid(){
 function whichKey(e){
   if(e.code == "ArrowLeft"){
     //the player has pressed the left arrow key
-    moveTertrominoLeft()
+    moveTetrominoLeft()
   }//end if
   if(e.code == "ArrowRight"){
     //the player has pressed the right arrow key
@@ -33,7 +33,7 @@ function whichKey(e){
   }//end if
 }//end function
 
-function moveTertrominoLeft(){
+function moveTetrominoLeft(){
   for(i=0 ; i<4 ; i++){
     document.getElementById(activeTetromino[i]).style.backgroundColor = "rgb(244, 213, 141)"
     activeTetromino[i] -= 1;
