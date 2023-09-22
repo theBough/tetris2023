@@ -6,7 +6,7 @@ var elArray = ["rgb(67,170,139)"]
 var reverseElArray = ["rgb(144,190,109)"]
 var esArray = ["rgb(249,199,79)"]
 var reverseEsArray = ["rgb(249,132,74)"]
-var activeTetromino = ["rgb(248,150,30"]
+var activeTetromino = []
 function makeGrid(){
   for(var i=0 ; i< 200 ; i++){
     var btn = document.createElement("button");
