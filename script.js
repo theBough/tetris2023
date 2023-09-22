@@ -29,7 +29,7 @@ function whichKey(e){
   }//end if
   if(e.code == "ArrowRight"){
     //the player has pressed the right arrow key
-   
+     moveTetrominoRight()
   }//end if
 }//end function
 
@@ -50,4 +50,20 @@ function moveTetrominoLeft(){
   }//end if
   
 }//end function
-
+function moveTetrominoRight(){
+  //We are going to use this to see if the tetromino is on the left edge
+  var canMove = true;
+  for(i=0 ; i<4 ; i++){
+    if(activeTetromino[i] % 10 == 9){
+      canMove = false;
+    } //end if
+  }//end for loop
+  if(canMove){
+    for(i=3 ; i>-1 ; i--){
+      document.getElementById(activeTetromino[i]).style.backgroundColor = "rgb(244, 213, 141)"
+      activeTetromino[i] += 1;
+      document.getElementById(activeTetromino[i]).style.backgroundColor = activeTetromino[4]
+    }//end loop
+  }//end if
+  
+}//end function
