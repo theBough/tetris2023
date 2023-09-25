@@ -9,11 +9,26 @@ var esArray = ["rgb(249,199,79)"]
 var reverseEsArray = ["rgb(249,132,74)"]
 var activeTetromino = []
 var backColor = "rgb(244, 213, 141)"
+
+function  newTetromino(){
+  for(i=0 ; i < 6 ; i++){
+    activeTetromino[i] = teeArray[i];
+    if(i<4){
+        document.getElementById(activeTetromino[i]).style.backgroundColor = teeArray[4]
+    }//
+  }//end loop
+}//end function
 function moveTetrominoDown(){
   for(i=3 ; i>-1 ; i--){
     document.getElementById(activeTetromino[i]).style.backgroundColor = backColor
     activeTetromino[i] +=10;
     document.getElementById(activeTetromino[i]).style.backgroundColor = activeTetromino[4]
+  }//end loop
+  for(i = 3 ; i>-1; i--){
+    if(activeTetromino[i]>189){
+      //the Tetromino is on the bottom row
+      newTetromino()
+    }//end if
   }//end loop
 }//end function
 function moveTetrominoRight(){
