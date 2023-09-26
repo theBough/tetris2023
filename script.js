@@ -1,5 +1,6 @@
 document.addEventListener("keydown", whichKey)
-var myGravity;
+var finishedArray=[];
+
 function gravityOn(){
   //This turns on Gravity.
   //the lower the number the faster the 
@@ -23,9 +24,19 @@ function moveTetrominoDown(){
     activeTetromino[i] +=10;
     document.getElementById(activeTetromino[i]).style.backgroundColor = activeTetromino[4]
   }//end loop
+  for(i=0 ; i < 4 ; i++){
+    if(finishedArray.includes(activeTetromino[i]+10)){
+      for(j=0 ;j<4; j++){
+        finishedArray.push(activeTetromino[i]);
+      }//end loop
+      newTetromino();
+      return 0;
+    }
+  }//end Loop
   for(i = 3 ; i>-1; i--){
     if(activeTetromino[i]>189){
       //the Tetromino is on the bottom row
+      finishedArray.push(activeTetromino[i]);
       newTetromino()
     }//end if
   }//end loop
