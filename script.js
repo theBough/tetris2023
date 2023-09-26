@@ -1,5 +1,5 @@
 document.addEventListener("keydown", whichKey)
-var finishedArray=[];
+
 
 function gravityOn(){
   //This turns on Gravity.
