@@ -8,3 +8,5 @@ var reverseEsArray = ["rgb(249,132,74)"]
 var activeTetromino = []
 var backColor = "rgb(244, 213, 141)"
 var myGravity;
+var finishedArray=[];
+
