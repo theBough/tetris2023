@@ -1,7 +1,14 @@
 document.addEventListener("keydown", whichKey)
 
 function rotateTetromino(){
-  
+  if(activeTetromino[5] == "tee"){
+    document.getElementById(activeTetromino[1]).style.backgroundColor = backColor
+    activeTetromino[1] += 1;
+    activeTetromino[2] += 1;
+    activeTetromino[3] += 9;
+    document.getElementById(activeTetromino[3]).style.backgroundColor = activeTetromino[4]
+    
+  }
 }
 function addTetrominoToFinished(){
   for(i=0 ; i<4 ; i++){
