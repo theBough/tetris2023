@@ -1,5 +1,8 @@
 document.addEventListener("keydown", whichKey)
 
+function rotateTetromino(){
+  
+}
 function addTetrominoToFinished(){
   for(i=0 ; i<4 ; i++){
       finishedArray.push(activeTetromino[i]);
@@ -85,8 +88,12 @@ function whichKey(e){
      moveTetrominoRight()
   }//end if
   if(e.code == "ArrowDown"){
-    //the player has pressed the right arrow key
+    //the player has pressed the down arrow
      moveTetrominoDown()
+  }//end if
+  if(e.code == "ArrowUp"){
+    //the player has pressed the up arrow
+     rotateTetromino()
   }//end if
 }//end function
 function makeGrid(){
