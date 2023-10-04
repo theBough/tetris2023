@@ -14,9 +14,29 @@ function rotateTee(){
     document.getElementById(activeTetromino[0]).style.backgroundColor = backColor
     activeTetromino[0]+=9
     document.getElementById(activeTetromino[0]).style.backgroundColor = activeTetromino[4]
-    
-  }
-}
+    activeTetromino[6] +=1
+  }else if(activeTetromino[6]==2){
+    //the tee is facing the right.
+    document.getElementById(activeTetromino[0]).style.backgroundColor = backColor
+    activeTetromino[0]-=9
+    document.getElementById(activeTetromino[0]).style.backgroundColor = activeTetromino[4]
+
+    document.getElementById(activeTetromino[1]).style.backgroundColor = backColor
+    activeTetromino[1]-=1
+    document.getElementById(activeTetromino[1]).style.backgroundColor = activeTetromino[4]
+
+    document.getElementById(activeTetromino[2]).style.backgroundColor = backColor
+    activeTetromino[2]-=1
+    document.getElementById(activeTetromino[2]).style.backgroundColor = activeTetromino[4]
+    activeTetromino[6] +=1
+  }else if(activeTetromino[6]==3){
+    //the tee is facing the right.
+    document.getElementById(activeTetromino[3]).style.backgroundColor = backColor
+    activeTetromino[3]-=9
+    document.getElementById(activeTetromino[3]).style.backgroundColor = activeTetromino[4]
+     activeTetromino[6] = 0
+  }//end if
+}//end function
 function rotateTetromino(){
   if(activeTetromino[5] == "tee"){
     rotateTee()
