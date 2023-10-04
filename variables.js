@@ -1,4 +1,4 @@
-var teeArray = [5,14,15,16,"rgb(39,125,161)","tee"]
+var teeArray = [5,14,15,16,"rgb(39,125,161)","tee",0]
 var cubeArray = [5,6,15,16,"rgb(87,117,144)", "cube"]
 var stickArray = ["rgb(77,144,142"]
 var elArray = ["rgb(67,170,139)"]
