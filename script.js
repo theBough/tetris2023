@@ -1,15 +1,31 @@
 document.addEventListener("keydown", whichKey)
 
-function rotateTetromino(){
-  if(activeTetromino[5] == "tee"){
+function rotateTee(){
+  if(activeTetromino[6] == 0){
+    //the Tee is facing upwards.
     document.getElementById(activeTetromino[1]).style.backgroundColor = backColor
     activeTetromino[1] += 1;
     activeTetromino[2] += 1;
     activeTetromino[3] += 9;
     document.getElementById(activeTetromino[3]).style.backgroundColor = activeTetromino[4]
+    activeTetromino[6] +=1
+  }else if(activeTetromino[6]==1){
+    //the tee is facing the right.
+    document.getElementById(activeTetromino[0]).style.backgroundColor = backColor
+    activeTetromino[0]+=9
+    document.getElementById(activeTetromino[0]).style.backgroundColor = activeTetromino[4]
     
   }
 }
+function rotateTetromino(){
+  if(activeTetromino[5] == "tee"){
+    rotateTee()
+  }else if(activeTetromino[5] == "reverseEl"){
+    rotateReverseEl();
+  }else if(activeTetromino[5] == "el"){
+    rotateEl();
+  }//end if
+}//end function
 function addTetrominoToFinished(){
   for(i=0 ; i<4 ; i++){
       finishedArray.push(activeTetromino[i]);
@@ -25,7 +41,7 @@ function gravityOff(){
   clearInterval(myGravity)
 }//end function
 function newTetromino(){
-  for(i=0 ; i < 6 ; i++){
+  for(i=0 ; i < 7 ; i++){
     activeTetromino[i] = teeArray[i];
     if(i<4){
         document.getElementById(activeTetromino[i]).style.backgroundColor = teeArray[4]
