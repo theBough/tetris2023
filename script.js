@@ -1,6 +1,9 @@
 document.addEventListener("keydown", whichKey)
 
+//you need to make a function to rotate each tetromino.
 function rotateTee(){
+
+  //for each rotating state of the tetromino you will need an 'if-else'
   if(activeTetromino[6] == 0){
     //the Tee is facing upwards.
     document.getElementById(activeTetromino[1]).style.backgroundColor = backColor
@@ -20,11 +23,9 @@ function rotateTee(){
     document.getElementById(activeTetromino[0]).style.backgroundColor = backColor
     activeTetromino[0]-=9
     document.getElementById(activeTetromino[0]).style.backgroundColor = activeTetromino[4]
-
     document.getElementById(activeTetromino[1]).style.backgroundColor = backColor
     activeTetromino[1]-=1
     document.getElementById(activeTetromino[1]).style.backgroundColor = activeTetromino[4]
-
     document.getElementById(activeTetromino[2]).style.backgroundColor = backColor
     activeTetromino[2]-=1
     document.getElementById(activeTetromino[2]).style.backgroundColor = activeTetromino[4]
@@ -34,9 +35,11 @@ function rotateTee(){
     document.getElementById(activeTetromino[3]).style.backgroundColor = backColor
     activeTetromino[3]-=9
     document.getElementById(activeTetromino[3]).style.backgroundColor = activeTetromino[4]
-     activeTetromino[6] = 0
+    activeTetromino[6] = 0
   }//end if
 }//end function
+
+//in the function below you need an "if-else" for each tetromino
 function rotateTetromino(){
   if(activeTetromino[5] == "tee"){
     rotateTee()
