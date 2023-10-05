@@ -19,7 +19,7 @@ function rotateTee(){
     document.getElementById(activeTetromino[0]).style.backgroundColor = activeTetromino[4]
     activeTetromino[6] +=1
   }else if(activeTetromino[6]==2){
-    //the tee is facing the right.
+    //the tee is facing downwards.
     document.getElementById(activeTetromino[0]).style.backgroundColor = backColor
     activeTetromino[0]-=9
     document.getElementById(activeTetromino[0]).style.backgroundColor = activeTetromino[4]
@@ -31,7 +31,7 @@ function rotateTee(){
     document.getElementById(activeTetromino[2]).style.backgroundColor = activeTetromino[4]
     activeTetromino[6] +=1
   }else if(activeTetromino[6]==3){
-    //the tee is facing the right.
+    //the tee is facing the left.
     document.getElementById(activeTetromino[3]).style.backgroundColor = backColor
     activeTetromino[3]-=9
     document.getElementById(activeTetromino[3]).style.backgroundColor = activeTetromino[4]
