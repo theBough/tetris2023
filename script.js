@@ -63,6 +63,65 @@ function rotateStick(){
     activeTetromino[6] =0
   }
 }
+function rotateReverseEl(){
+  if(activeTetromino[6] == 0){
+    document.getElementById(activeTetromino[0]).style.backgroundColor = backColor
+    document.getElementById(activeTetromino[1]).style.backgroundColor = backColor
+    document.getElementById(activeTetromino[2]).style.backgroundColor = backColor
+    document.getElementById(activeTetromino[3]).style.backgroundColor = backColor
+    activeTetromino[0] += 10;
+    activeTetromino[1] += 10;
+     activeTetromino[2] += 2;
+    activeTetromino[3] += 2;
+    document.getElementById(activeTetromino[0]).style.backgroundColor = activeTetromino[4]
+    document.getElementById(activeTetromino[1]).style.backgroundColor = activeTetromino[4]
+    document.getElementById(activeTetromino[2]).style.backgroundColor = activeTetromino[4]
+    document.getElementById(activeTetromino[3]).style.backgroundColor = activeTetromino[4]
+    activeTetromino[6] +=1
+  }else if(activeTetromino[6]==1){
+    document.getElementById(activeTetromino[0]).style.backgroundColor = backColor
+    document.getElementById(activeTetromino[1]).style.backgroundColor = backColor
+    document.getElementById(activeTetromino[2]).style.backgroundColor = backColor
+    document.getElementById(activeTetromino[3]).style.backgroundColor = backColor
+    activeTetromino[0] += 10;
+    activeTetromino[1] += 1;
+     activeTetromino[2] += 9;
+    activeTetromino[3] += 18;
+    document.getElementById(activeTetromino[0]).style.backgroundColor = activeTetromino[4]
+    document.getElementById(activeTetromino[1]).style.backgroundColor = activeTetromino[4]
+    document.getElementById(activeTetromino[2]).style.backgroundColor = activeTetromino[4]
+    document.getElementById(activeTetromino[3]).style.backgroundColor = activeTetromino[4]
+    activeTetromino[6] +=1
+  }else if(activeTetromino[6]==2){
+    document.getElementById(activeTetromino[0]).style.backgroundColor = backColor
+    document.getElementById(activeTetromino[1]).style.backgroundColor = backColor
+    document.getElementById(activeTetromino[2]).style.backgroundColor = backColor
+    document.getElementById(activeTetromino[3]).style.backgroundColor = backColor
+    activeTetromino[0] -= 2;
+    activeTetromino[1] -= 2;
+     activeTetromino[2] -= 10;
+    activeTetromino[3] -= 10;
+    document.getElementById(activeTetromino[0]).style.backgroundColor = activeTetromino[4]
+    document.getElementById(activeTetromino[1]).style.backgroundColor = activeTetromino[4]
+    document.getElementById(activeTetromino[2]).style.backgroundColor = activeTetromino[4]
+    document.getElementById(activeTetromino[3]).style.backgroundColor = activeTetromino[4]
+    activeTetromino[6] +=1
+  }else if(activeTetromino[6]==3){
+    document.getElementById(activeTetromino[0]).style.backgroundColor = backColor
+    document.getElementById(activeTetromino[1]).style.backgroundColor = backColor
+    document.getElementById(activeTetromino[2]).style.backgroundColor = backColor
+    document.getElementById(activeTetromino[3]).style.backgroundColor = backColor
+    activeTetromino[0] -= 18;
+    activeTetromino[1] -= 9;
+     activeTetromino[2] -= 1;
+    activeTetromino[3] -= 10;
+    document.getElementById(activeTetromino[0]).style.backgroundColor = activeTetromino[4]
+    document.getElementById(activeTetromino[1]).style.backgroundColor = activeTetromino[4]
+    document.getElementById(activeTetromino[2]).style.backgroundColor = activeTetromino[4]
+    document.getElementById(activeTetromino[3]).style.backgroundColor = activeTetromino[4]
+    activeTetromino[6] =0
+  }
+}
 
 //in the function below you need an "if-else" for each tetromino
 function rotateTetromino(){
@@ -176,10 +235,10 @@ function makeGrid(){
     document.getElementById("gridContainer").appendChild(btn)
     document.getElementById(i).textContent = i
   }//end loop
-  for(i = 0 ; i<6; i++){
-    activeTetromino[i] = cubeArray[i];
+  for(i = 0 ; i<7; i++){
+    activeTetromino[i] = reverseElArray[i];
     if(i < 4){
-      document.getElementById(activeTetromino[i]).style.backgroundColor = cubeArray[4]
+      document.getElementById(activeTetromino[i]).style.backgroundColor = reverseElArray[4]
     }
   }
 }//end function
