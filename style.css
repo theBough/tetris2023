@@ -26,6 +26,15 @@ html {
   display: grid;
   grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
   background-color: #BF0603;
-  width: 300px;
+  width: 310px;
+  height: auto;
+}
+.preview-grid{
+  text-align:right;
+  justify-content: right;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  background-color: #BF0603;
+  width: 150px;
   height: auto;
 }
