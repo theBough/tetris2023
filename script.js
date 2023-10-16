@@ -1,5 +1,7 @@
 document.addEventListener("keydown", whichKey)
 
+
+
 //you need to make a function to rotate each tetromino.
 function rotateTee(){
 
@@ -126,7 +128,6 @@ function rotateReverseEl(){
     activeTetromino[6] =0
   }
 }
-
 //in the function below you need an "if-else" for each tetromino
 function rotateTetromino(){
   if(activeTetromino[5] == "tee"){
@@ -245,5 +246,17 @@ function makeGrid(){
       document.getElementById(activeTetromino[i]).style.backgroundColor = reverseElArray[4]
     }
   }
+  makePreviewGrid();
+}//end function
+
+function makePreviewGrid(){
+  for(var i=0 ; i< 30 ; i++){
+    var btn = document.createElement("button");
+    btn.setAttribute("class", "my-btn-preview")
+    btn.setAttribute("id", i+500)
+    document.getElementById("previewGrid").appendChild(btn)
+    document.getElementById(i).textContent = i
+  }//end loop
+  
 }//end function
 
