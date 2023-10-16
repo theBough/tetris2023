@@ -20,6 +20,13 @@ html {
   text-align:center;
   justify-content: center;
 }
+.my-btn-preview{
+  background-color:#F4D58D ;
+  width:10px;
+  height: 10px;
+  text-align:center;
+  justify-content: center;
+}
 .grid-container{
   text-align:center;
   justify-content: center;
