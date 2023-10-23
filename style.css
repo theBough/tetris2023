@@ -43,8 +43,13 @@ html {
   display: grid;
   grid-template-columns: auto auto auto auto auto;
   background-color: #BF0603;
-  width: 100px;
+  width: 50px;
   height: auto;
   float:left;
   padding: 5px;
 }
+.next-tetromino{
+  width: 50px;
+  padding: 5px;
+}
+
