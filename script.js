@@ -1,143 +1,22 @@
 document.addEventListener("keydown", whichKey)
-
-
-
-//you need to make a function to rotate each tetromino.
-function rotateTee(){
-
-  //for each rotating state of the tetromino you will need an 'if-else'
-  if(activeTetromino[6] == 0){
-    //the Tee is facing upwards.
-    document.getElementById(activeTetromino[1]).style.backgroundColor = backColor
-    activeTetromino[1] += 1;
-    activeTetromino[2] += 1;
-    activeTetromino[3] += 9;
-    document.getElementById(activeTetromino[3]).style.backgroundColor = activeTetromino[4]
-    activeTetromino[6] +=1
-  }else if(activeTetromino[6]==1){
-    //the tee is facing the right.
-    document.getElementById(activeTetromino[0]).style.backgroundColor = backColor
-    activeTetromino[0]+=9
-    document.getElementById(activeTetromino[0]).style.backgroundColor = activeTetromino[4]
-    activeTetromino[6] +=1
-  }else if(activeTetromino[6]==2){
-    //the tee is facing the right.
-    document.getElementById(activeTetromino[0]).style.backgroundColor = backColor
-    activeTetromino[0]-=9
-    document.getElementById(activeTetromino[0]).style.backgroundColor = activeTetromino[4]
-    document.getElementById(activeTetromino[1]).style.backgroundColor = backColor
-    activeTetromino[1]-=1
-    document.getElementById(activeTetromino[1]).style.backgroundColor = activeTetromino[4]
-    document.getElementById(activeTetromino[2]).style.backgroundColor = backColor
-    activeTetromino[2]-=1
-    document.getElementById(activeTetromino[2]).style.backgroundColor = activeTetromino[4]
-    activeTetromino[6] +=1
-  }else if(activeTetromino[6]==3){
-    //the tee is facing the right.
-    document.getElementById(activeTetromino[3]).style.backgroundColor = backColor
-    activeTetromino[3]-=9
-    document.getElementById(activeTetromino[3]).style.backgroundColor = activeTetromino[4]
-    activeTetromino[6] = 0
-  }//end if
-}//end function
-function rotateStick(){
-  if(activeTetromino[6] == 0){
-    document.getElementById(activeTetromino[0]).style.backgroundColor = backColor
-    document.getElementById(activeTetromino[1]).style.backgroundColor = backColor
-    document.getElementById(activeTetromino[2]).style.backgroundColor = backColor
-    document.getElementById(activeTetromino[3]).style.backgroundColor = backColor
-    activeTetromino[0] += 9;
-    activeTetromino[2] -= 9;
-    activeTetromino[3] -= 18;
-    document.getElementById(activeTetromino[0]).style.backgroundColor = activeTetromino[4]
-    document.getElementById(activeTetromino[1]).style.backgroundColor = activeTetromino[4]
-    document.getElementById(activeTetromino[2]).style.backgroundColor = activeTetromino[4]
-    document.getElementById(activeTetromino[3]).style.backgroundColor = activeTetromino[4]
-    activeTetromino[6] +=1
-  }else if(activeTetromino[6]==1){
-    document.getElementById(activeTetromino[0]).style.backgroundColor = backColor
-     document.getElementById(activeTetromino[1]).style.backgroundColor = backColor
-    document.getElementById(activeTetromino[2]).style.backgroundColor = backColor
-    document.getElementById(activeTetromino[3]).style.backgroundColor = backColor
-    activeTetromino[0] -= 9;
-    activeTetromino[2] += 9;
-    activeTetromino[3] += 18;
-    document.getElementById(activeTetromino[0]).style.backgroundColor = activeTetromino[4]
-    document.getElementById(activeTetromino[1]).style.backgroundColor = activeTetromino[4]
-    document.getElementById(activeTetromino[2]).style.backgroundColor = activeTetromino[4]
-    document.getElementById(activeTetromino[3]).style.backgroundColor = activeTetromino[4]
-    activeTetromino[6] =0
+function pickNextTetromino(){
+  var rndNum = Math.random()*7
+  rndNum = Math.floor(rndNum)
+  var nextTetrominoPic = document.getElementById("nextTetromino")
+  
+  if(rndNum == 0){
+    nextTetrominoPic.src = "images/cube.png"
+    newTetromino(cubeArray)
+  }
+  if(rndNum == 1){
+    nextTetrominoPic.src = "images/el.png"
+     newTetromino(elArray)
+  }
+  if(rndNum == 2){
+    nextTetrominoPic.src = "images/reverseEl.png"
+    newTetromino(reverseElArray)
   }
 }
-function rotateReverseEl(){
-  if(activeTetromino[6] == 0){
-    document.getElementById(activeTetromino[0]).style.backgroundColor = backColor
-    document.getElementById(activeTetromino[1]).style.backgroundColor = backColor
-    document.getElementById(activeTetromino[2]).style.backgroundColor = backColor
-    document.getElementById(activeTetromino[3]).style.backgroundColor = backColor
-    activeTetromino[0] += 10;
-    activeTetromino[1] += 10;
-     activeTetromino[2] += 2;
-    activeTetromino[3] += 2;
-    document.getElementById(activeTetromino[0]).style.backgroundColor = activeTetromino[4]
-    document.getElementById(activeTetromino[1]).style.backgroundColor = activeTetromino[4]
-    document.getElementById(activeTetromino[2]).style.backgroundColor = activeTetromino[4]
-    document.getElementById(activeTetromino[3]).style.backgroundColor = activeTetromino[4]
-    activeTetromino[6] +=1
-  }else if(activeTetromino[6]==1){
-    document.getElementById(activeTetromino[0]).style.backgroundColor = backColor
-    document.getElementById(activeTetromino[1]).style.backgroundColor = backColor
-    document.getElementById(activeTetromino[2]).style.backgroundColor = backColor
-    document.getElementById(activeTetromino[3]).style.backgroundColor = backColor
-    activeTetromino[0] += 10;
-    activeTetromino[1] += 1;
-     activeTetromino[2] += 9;
-    activeTetromino[3] += 18;
-    document.getElementById(activeTetromino[0]).style.backgroundColor = activeTetromino[4]
-    document.getElementById(activeTetromino[1]).style.backgroundColor = activeTetromino[4]
-    document.getElementById(activeTetromino[2]).style.backgroundColor = activeTetromino[4]
-    document.getElementById(activeTetromino[3]).style.backgroundColor = activeTetromino[4]
-    activeTetromino[6] +=1
-  }else if(activeTetromino[6]==2){
-    document.getElementById(activeTetromino[0]).style.backgroundColor = backColor
-    document.getElementById(activeTetromino[1]).style.backgroundColor = backColor
-    document.getElementById(activeTetromino[2]).style.backgroundColor = backColor
-    document.getElementById(activeTetromino[3]).style.backgroundColor = backColor
-    activeTetromino[0] -= 2;
-    activeTetromino[1] -= 2;
-     activeTetromino[2] -= 10;
-    activeTetromino[3] -= 10;
-    document.getElementById(activeTetromino[0]).style.backgroundColor = activeTetromino[4]
-    document.getElementById(activeTetromino[1]).style.backgroundColor = activeTetromino[4]
-    document.getElementById(activeTetromino[2]).style.backgroundColor = activeTetromino[4]
-    document.getElementById(activeTetromino[3]).style.backgroundColor = activeTetromino[4]
-    activeTetromino[6] +=1
-  }else if(activeTetromino[6]==3){
-    document.getElementById(activeTetromino[0]).style.backgroundColor = backColor
-    document.getElementById(activeTetromino[1]).style.backgroundColor = backColor
-    document.getElementById(activeTetromino[2]).style.backgroundColor = backColor
-    document.getElementById(activeTetromino[3]).style.backgroundColor = backColor
-    activeTetromino[0] -= 18;
-    activeTetromino[1] -= 9;
-     activeTetromino[2] -= 1;
-    activeTetromino[3] -= 10;
-    document.getElementById(activeTetromino[0]).style.backgroundColor = activeTetromino[4]
-    document.getElementById(activeTetromino[1]).style.backgroundColor = activeTetromino[4]
-    document.getElementById(activeTetromino[2]).style.backgroundColor = activeTetromino[4]
-    document.getElementById(activeTetromino[3]).style.backgroundColor = activeTetromino[4]
-    activeTetromino[6] =0
-  }
-}
-//in the function below you need an "if-else" for each tetromino
-function rotateTetromino(){
-  if(activeTetromino[5] == "tee"){
-    rotateTee()
-  }else if(activeTetromino[5] == "reverseEl"){
-    rotateReverseEl();
-  }else if(activeTetromino[5] == "stick"){
-    rotateStick();
-  }//end if
-}//end function
 
 function addTetrominoToFinished(){
   for(i=0 ; i<4 ; i++){
@@ -153,11 +32,12 @@ function gravityOn(){
 function gravityOff(){
   clearInterval(myGravity)
 }//end function
-function newTetromino(){
+function newTetromino(thisTetromino){
   for(i=0 ; i < 7 ; i++){
-    activeTetromino[i] = stickArray[i];
+    activeTetromino[i] = thisTetromino[i];
     if(i<4){
-        document.getElementById(activeTetromino[i]).style.backgroundColor = stickArray[4]
+        document.getElementById(activeTetromino[i]).style.backgroundColor = thisTetromino[4]
+        
     }//
   }//end loop
 }//end function
@@ -238,17 +118,18 @@ function makeGrid(){
     btn.setAttribute("class", "my-btn")
     btn.setAttribute("id", i)
     document.getElementById("gridContainer").appendChild(btn)
-    document.getElementById(i).textContent = i
+    //document.getElementById(i).textContent = i
   }//end loop
   for(i = 0 ; i<7; i++){
-    activeTetromino[i] = reverseElArray[i];
+    activeTetromino[i] = esArray[i];
     if(i < 4){
-      document.getElementById(activeTetromino[i]).style.backgroundColor = reverseElArray[4]
+      document.getElementById(activeTetromino[i]).style.backgroundColor = esArray[4]
+      //console.log(document.getElementById(505))
+      //document.getElementById("505").style.backgroundColor = reverseElArray[4]
     }
   }
-  makePreviewGrid();
+  //makePreviewGrid();
 }//end function
-
 function makePreviewGrid(){
   for(var i=0 ; i< 30 ; i++){
     var btn = document.createElement("button");
@@ -256,7 +137,7 @@ function makePreviewGrid(){
     btn.setAttribute("id", i+500)
     document.getElementById("previewGrid").appendChild(btn)
     document.getElementById(i).textContent = i
-  }//end loop
-  
+    //console.log(btn)
+  }//end loop  
 }//end function
 
