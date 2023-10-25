@@ -123,24 +123,6 @@ function rotateEl(){
 function rotateEs(){
   if(activeTetromino[6] == 0){
      changeColor(backColor)
-    activeTetromino[0] += 1;
-    activeTetromino[1] += 9;
-     activeTetromino[2] += 0;
-    activeTetromino[3] += 8;
-    changeColor(activeTetromino[4])
-    activeTetromino[6] +=1
-  }else if(activeTetromino[6]==1){
-     changeColor(backColor)
-    activeTetromino[0] -= 1;
-    activeTetromino[1] -= 9;
-     activeTetromino[2] += 0;
-    activeTetromino[3] -= 8;
-     changeColor(activeTetromino[4])
-    activeTetromino[6] =0  }
-}
-function rotateReverseEs(){
-  if(activeTetromino[6] == 0){
-     changeColor(backColor)
     activeTetromino[0] += 0;
     activeTetromino[1] += 9;
      activeTetromino[2] += 2;
@@ -153,6 +135,24 @@ function rotateReverseEs(){
     activeTetromino[1] -= 9;
      activeTetromino[2] -= 2;
     activeTetromino[3] -= 11;
+     changeColor(activeTetromino[4])
+    activeTetromino[6] =0  }
+}
+function rotateReverseEs(){
+  if(activeTetromino[6] == 0){
+     changeColor(backColor)
+    activeTetromino[0] += 1;
+    activeTetromino[1] += 9;
+     activeTetromino[2] += 0;
+    activeTetromino[3] += 8;
+    changeColor(activeTetromino[4])
+    activeTetromino[6] +=1
+  }else if(activeTetromino[6]==1){
+     changeColor(backColor)
+    activeTetromino[0] -= 1;
+    activeTetromino[1] -= 9;
+     activeTetromino[2] += 0;
+    activeTetromino[3] -= 8;
      changeColor(activeTetromino[4])
     activeTetromino[6] =0  }
 }
