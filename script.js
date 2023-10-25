@@ -1,9 +1,68 @@
 document.addEventListener("keydown", whichKey)
+function startGame(){
+  var rndNum = Math.floor(Math.random()*7)
+  console.log(rndNum)
+  
+  if(rndNum == 0){
+    for(i = 0 ; i<7 ; i++){
+      nextTetromino[i] = teeArray[i];
+    }//end loop
+    console.log(nextTetromino)
+  }
+  if(rndNum == 1){
+    for(i = 0 ; i<7 ; i++){
+      nextTetromino[i] = esArray[i];
+    }//end loop
+    console.log(nextTetromino)
+  }
+  if(rndNum == 2){
+    for(i = 0 ; i<7 ; i++){
+      nextTetromino[i] = reverseElArray[i];
+    }//end loop
+    console.log(nextTetromino)
+  }
+  if(rndNum == 3){
+    for(i = 0 ; i<7 ; i++){
+      nextTetromino[i] = elArray[i];
+    }//end loop
+    console.log(nextTetromino)
+  }
+  if(rndNum == 4){
+    for(i = 0 ; i<7 ; i++){
+      nextTetromino[i] = reverseEsArray[i];
+    }//end loop
+    console.log(nextTetromino)
+  }
+  if(rndNum == 5){
+    for(i = 0 ; i<7 ; i++){
+      nextTetromino[i] = stickArray[i];
+    }//end loop
+    console.log(nextTetromino)
+  }
+  if(rndNum == 6){
+    for(i = 0 ; i<7 ; i++){
+      nextTetromino[i] = cubeArray[i];
+    }//end loop
+    console.log(nextTetromino)
+  }
+ 
+  pickNextTetromino();
+}
 function pickNextTetromino(){
+  //console.log(nextTetromino[5])
+  for(var i = 6 ; i>-1 ; i--){
+    console.log(i)
+    activeTetromino[i] = nextTetromino[i];
+    if(i<4){
+      console.log(activeTetromino[4])
+        document.getElementById(activeTetromino[i]).style.backgroundColor = activeTetromino[4]
+    }//
+  }//end loop
+ 
   var rndNum = Math.random()*7
   rndNum = Math.floor(rndNum)
   var nextTetrominoPic = document.getElementById("nextTetromino")
-  
+
   if(rndNum == 0){
     nextTetrominoPic.src = "images/cube.png"
     newTetromino(cubeArray)
@@ -16,8 +75,25 @@ function pickNextTetromino(){
     nextTetrominoPic.src = "images/reverseEl.png"
     newTetromino(reverseElArray)
   }
+  if(rndNum == 3){
+    nextTetrominoPic.src = "images/es.png"
+    newTetromino(esArray)
+  }
+  if(rndNum == 4){
+    nextTetrominoPic.src = "images/reverseEs.png"
+    newTetromino(reverseEsArray)
+  }
+  if(rndNum == 5){
+    nextTetrominoPic.src = "images/stick.png"
+    newTetromino(stickArray)
+  }
+  if(rndNum == 6){
+    nextTetrominoPic.src = "images/tee.png"
+    newTetromino(teeArray)
+  }
+  //console.log(rndNum)
+  //console.log(nextTetromino)
 }
-
 function addTetrominoToFinished(){
   for(i=0 ; i<4 ; i++){
       finishedArray.push(activeTetromino[i]);
@@ -34,11 +110,7 @@ function gravityOff(){
 }//end function
 function newTetromino(thisTetromino){
   for(i=0 ; i < 7 ; i++){
-    activeTetromino[i] = thisTetromino[i];
-    if(i<4){
-        document.getElementById(activeTetromino[i]).style.backgroundColor = thisTetromino[4]
-        
-    }//
+    nextTetromino[i] = thisTetromino[i];
   }//end loop
 }//end function
 function moveTetrominoDown(){
@@ -50,14 +122,14 @@ function moveTetrominoDown(){
   for(i=0 ; i < 4 ; i++){
     if(finishedArray.includes(activeTetromino[i]+10)){
       addTetrominoToFinished();
-      newTetromino();
+      pickNextTetromino();
       return 0;
     }
   }//end Loop
   for(i = 3 ; i>-1; i--){
     if(activeTetromino[i]>189){
       addTetrominoToFinished();
-      newTetromino()
+      pickNextTetromino()
     }//end if
   }//end loop
 }//end function
@@ -92,7 +164,7 @@ function moveTetrominoLeft(){
       document.getElementById(activeTetromino[i]).style.backgroundColor = activeTetromino[4]
     }//end loop
   }//end if
-  
+
 }//end function
 function whichKey(e){
   if(e.code == "ArrowLeft"){
@@ -120,14 +192,7 @@ function makeGrid(){
     document.getElementById("gridContainer").appendChild(btn)
     //document.getElementById(i).textContent = i
   }//end loop
-  for(i = 0 ; i<7; i++){
-    activeTetromino[i] = esArray[i];
-    if(i < 4){
-      document.getElementById(activeTetromino[i]).style.backgroundColor = esArray[4]
-      //console.log(document.getElementById(505))
-      //document.getElementById("505").style.backgroundColor = reverseElArray[4]
-    }
-  }
+  startGame();
   //makePreviewGrid();
 }//end function
 function makePreviewGrid(){
@@ -140,4 +205,3 @@ function makePreviewGrid(){
     //console.log(btn)
   }//end loop  
 }//end function
-
