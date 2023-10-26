@@ -141,6 +141,11 @@ function moveTetrominoRight(){
       canMove = false;
     } //end if
   }//end for loop
+  for(i=0; i<4; i++){
+    if(finishedArray.includes(activeTetromino[i]+1)){
+      canMove = false
+    }
+  }
   if(canMove){
     for(i=3 ; i>-1 ; i--){
       document.getElementById(activeTetromino[i]).style.backgroundColor = "rgb(244, 213, 141)"
