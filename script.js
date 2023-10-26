@@ -1,4 +1,11 @@
 document.addEventListener("keydown", whichKey)
+function isGameOver(){
+  for(i=0 ; i<3 ; i++){
+    if(finishedArray.includes(activeTetromino[i])){
+      clearInterval(myGravity);
+    }
+  }//end loop
+}//end Function
 function startGame(){
   var rndNum = Math.floor(Math.random()*7)
   console.log(rndNum)
@@ -58,7 +65,7 @@ function pickNextTetromino(){
         document.getElementById(activeTetromino[i]).style.backgroundColor = activeTetromino[4]
     }//
   }//end loop
- 
+ isGameOver();
   var rndNum = Math.random()*7
   rndNum = Math.floor(rndNum)
   var nextTetrominoPic = document.getElementById("nextTetromino")
