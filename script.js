@@ -1,21 +1,18 @@
 document.addEventListener("keydown", whichKey)
 function tetrominoJustLanded(){
-  console.log("JustLanded")
-  if(isClear(190)){
-    console.log("Row is done.")
-    clearRow(190)
+  for(var i= 190 ; i >- 1 ; i -=10){
+    if(isClear(i)){
+      clearRow(i)
+    }
   }
 }
 function clearRow(thisRow){
-  for(var i = 190 ; i<200 ; i++){
-    console.log()
+  for(var i = thisRow ; i<thisRow + 10 ; i++){
     document.getElementById(i).style.backgroundColor = backColor
-    console.log(document.getElementById(i))
   }
 }
 function isClear(thisRow){
-  for(var i=190 ; i<200 ; i++){
-   
+  for(var i=thisRow ; i<thisRow+10 ; i++){
     if(!(finishedArray.includes(i))){
       return false;
     }//end if
