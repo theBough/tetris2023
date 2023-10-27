@@ -1,4 +1,27 @@
 document.addEventListener("keydown", whichKey)
+function tetrominoJustLanded(){
+  console.log("JustLanded")
+  if(isClear(190)){
+    console.log("Row is done.")
+    clearRow(190)
+  }
+}
+function clearRow(thisRow){
+  for(var i = 190 ; i<200 ; i++){
+    console.log()
+    document.getElementById(i).style.backgroundColor = backColor
+    console.log(document.getElementById(i))
+  }
+}
+function isClear(thisRow){
+  for(var i=190 ; i<200 ; i++){
+   
+    if(!(finishedArray.includes(i))){
+      return false;
+    }//end if
+  }//end loop
+  return true;
+}//end function
 function isGameOver(){
   for(i=0 ; i<3 ; i++){
     if(finishedArray.includes(activeTetromino[i])){
@@ -8,60 +31,60 @@ function isGameOver(){
 }//end Function
 function startGame(){
   var rndNum = Math.floor(Math.random()*7)
-  console.log(rndNum)
+
   
   if(rndNum == 0){
     for(i = 0 ; i<7 ; i++){
       nextTetromino[i] = teeArray[i];
     }//end loop
-    console.log(nextTetromino)
+   
   }
   if(rndNum == 1){
     for(i = 0 ; i<7 ; i++){
       nextTetromino[i] = esArray[i];
     }//end loop
-    console.log(nextTetromino)
+ 
   }
   if(rndNum == 2){
     for(i = 0 ; i<7 ; i++){
       nextTetromino[i] = reverseElArray[i];
     }//end loop
-    console.log(nextTetromino)
+ 
   }
   if(rndNum == 3){
     for(i = 0 ; i<7 ; i++){
       nextTetromino[i] = elArray[i];
     }//end loop
-    console.log(nextTetromino)
+   
   }
   if(rndNum == 4){
     for(i = 0 ; i<7 ; i++){
       nextTetromino[i] = reverseEsArray[i];
     }//end loop
-    console.log(nextTetromino)
+   
   }
   if(rndNum == 5){
     for(i = 0 ; i<7 ; i++){
       nextTetromino[i] = stickArray[i];
     }//end loop
-    console.log(nextTetromino)
+
   }
   if(rndNum == 6){
     for(i = 0 ; i<7 ; i++){
       nextTetromino[i] = cubeArray[i];
     }//end loop
-    console.log(nextTetromino)
+  
   }
  
   pickNextTetromino();
 }
 function pickNextTetromino(){
-  //console.log(nextTetromino[5])
+
   for(var i = 6 ; i>-1 ; i--){
-    console.log(i)
+   
     activeTetromino[i] = nextTetromino[i];
     if(i<4){
-      console.log(activeTetromino[4])
+     
         document.getElementById(activeTetromino[i]).style.backgroundColor = activeTetromino[4]
     }//
   }//end loop
@@ -98,8 +121,8 @@ function pickNextTetromino(){
     nextTetrominoPic.src = "images/tee.png"
     newTetromino(teeArray)
   }
-  //console.log(rndNum)
-  //console.log(nextTetromino)
+
+
 }
 function addTetrominoToFinished(){
   for(i=0 ; i<4 ; i++){
@@ -129,6 +152,7 @@ function moveTetrominoDown(){
   for(i=0 ; i < 4 ; i++){
     if(finishedArray.includes(activeTetromino[i]+10)){
       addTetrominoToFinished();
+      tetrominoJustLanded();
       pickNextTetromino();
       return 0;
     }
@@ -136,6 +160,7 @@ function moveTetrominoDown(){
   for(i = 3 ; i>-1; i--){
     if(activeTetromino[i]>189){
       addTetrominoToFinished();
+      tetrominoJustLanded()
       pickNextTetromino()
     }//end if
   }//end loop
@@ -219,6 +244,6 @@ function makePreviewGrid(){
     btn.setAttribute("id", i+500)
     document.getElementById("previewGrid").appendChild(btn)
     document.getElementById(i).textContent = i
-    //console.log(btn)
+  
   }//end loop  
 }//end function
