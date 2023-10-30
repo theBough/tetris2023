@@ -9,6 +9,10 @@ function tetrominoJustLanded(){
 function clearRow(thisRow){
   for(var i = thisRow ; i<thisRow + 10 ; i++){
     document.getElementById(i).style.backgroundColor = backColor
+    var index = finishedArray.indexOf(i);
+    if(index > -1){
+      finishedArray.splice(index,1)
+    }
   }
 }
 function isClear(thisRow){
