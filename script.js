@@ -1,10 +1,22 @@
+var clearedRows = [];
+var clearedARow = false;
 document.addEventListener("keydown", whichKey)
+function moveBlocksDown(){
+  
+}
 function tetrominoJustLanded(){
   for(var i= 190 ; i >- 1 ; i -=10){
     if(isClear(i)){
+      clearedARow = true;
+      clearedRows.push(i);
       clearRow(i)
-    }
+    }//end if
+  }//end loop
+  if(clearedARow){
+    moveBlocksDown();
+    clearedARow = false;
   }
+  
 }
 function clearRow(thisRow){
   for(var i = thisRow ; i<thisRow + 10 ; i++){
