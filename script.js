@@ -1,9 +1,28 @@
 var clearedRows = [];
 var clearedARow = false;
 document.addEventListener("keydown", whichKey)
+
+
+
 function moveBlocksDown(){
-  
-}
+  for(var i = clearedRows.length -1 ; i> -1 ; i--){
+    clearAboveThis(clearedRows[i]);
+    updateFinishedArray(clearedRows[i]);
+  } //end loop 
+}//end function
+function clearAboveThis(thisRow){
+  for(var i = thisRow - 1; i > -1; i--){
+    document.getElementById(i+10).style.backgroundColor = document.getElementById(i).style.backgroundColor;
+    document.getElementById(i).style.backgroundColor = backColor
+  }//end loop
+}//end fnction
+function updateFinishedArray(thisIndex){
+  for(var i = 0 ; i<finishedArray.length ; i++){
+    if(finishedArray[i]<thisIndex){
+      finishedArray[i] += 10
+    }//end if
+  }//end loop
+}//end Function
 function tetrominoJustLanded(){
   for(var i= 190 ; i >- 1 ; i -=10){
     if(isClear(i)){
@@ -16,7 +35,7 @@ function tetrominoJustLanded(){
     moveBlocksDown();
     clearedARow = false;
   }
-  
+  clearedRows = []
 }
 function clearRow(thisRow){
   for(var i = thisRow ; i<thisRow + 10 ; i++){
